@@ -78,7 +78,7 @@ class TypeWriter {
 document.addEventListener('DOMContentLoaded', () => {
     const txtElement = document.querySelector('.typing-text');
     if (txtElement) {
-        const words = ['CEO & Founder', 'Tech Entrepreneur', 'Property Investor', 'Strategic Leader'];
+        const words = ['CEO & Founder', 'Entrepreneur', 'Investor', 'Leader'];
         new TypeWriter(txtElement, words, 2000);
     }
 });
