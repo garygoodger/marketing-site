@@ -178,7 +178,7 @@ window.addEventListener('scroll', () => {
 // Contact form handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         
         // Get form data
@@ -199,19 +199,34 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
+        // Submit form
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
         
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        setTimeout(() => {
+        try {
+            const response = await fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                this.reset();
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+        } finally {
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
-            this.reset();
-            showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
-        }, 2000);
+        }
     });
 }
 
