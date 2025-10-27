@@ -123,12 +123,19 @@ function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16);
     
+    // Function to format numbers with commas and + for large numbers
+    const formatNumber = (num) => {
+        const formatted = Math.floor(num).toLocaleString();
+        // Add + for numbers >= 500,000
+        return num >= 500000 ? formatted + '+' : formatted;
+    };
+    
     const timer = setInterval(() => {
         start += increment;
-        element.textContent = Math.floor(start);
+        element.textContent = formatNumber(start);
         
         if (start >= target) {
-            element.textContent = target;
+            element.textContent = formatNumber(target);
             clearInterval(timer);
         }
     }, 16);
