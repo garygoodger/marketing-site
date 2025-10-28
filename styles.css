@@ -887,6 +887,10 @@ section {
         transform: translateY(-9px) rotate(-45deg);
     }
 
+    .hero {
+        padding-top: 80px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
