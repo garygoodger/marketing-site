@@ -585,5 +585,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log('🚀 Gary Goodger Portfolio - Loaded successfully!');
-console.log('💼 CEO & Founder | Traders Connect | Goodger Investments');
+console.log('💼 Founder | Traders Connect | Goodger Investments');
 console.log('🌐 goodgerinvestments.co.uk');
