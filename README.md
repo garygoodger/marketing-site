@@ -129,10 +129,6 @@ Modify CSS custom properties in `styles.css`:
 - Alt text for images
 - Structured data ready
 
-## 📞 Support
-
-For technical support or customization requests, contact gary@goodgerinvestments.co.uk
-
 ---
 
 **Built with ❤️ for Goodger Investments**
